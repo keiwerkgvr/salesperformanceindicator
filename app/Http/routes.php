@@ -16,7 +16,7 @@
 Route:get('/', function(){
 
     if(Auth::guest()){
-        return Redirect::to('http://salesperformanceindicator.com/welcome/index.php');
+        return Redirect::to('http://salesperformanceindicator/welcome/index.php');
     }
     $user = Auth::user();
 
