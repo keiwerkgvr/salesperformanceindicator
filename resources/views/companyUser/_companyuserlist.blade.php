@@ -99,7 +99,7 @@ function bd_nice_number($n) {
                                         @if( $user->status == 'INACTIVE' )
                                         <a href="{{ url('/companyUsers/activate/'.$user->id) }}" title="Active"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></a> |
                                         @else
-                                        <a href="{{ url('/companyUsers/destroy/'.$user->id) }}" onclick="return  confirm('Are you sure you want to disable {{$user->last_name}}, {{$user->first_name}}?');" title="Inactive"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> |
+                                        <a href="{{ url('/companyUsers/destroy/'.$user->id) }}" onclick="return  confirm('Owners within the Sales Performance Indicator software have the ability to deactivate a user.  Your cancellation will take effect on your next billing date.  Refunds will not be provided for deactivation during a billing cycle.\n\nAre you sure?');" title="Inactive"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> |
                                         @endif
                                         @endif
                                         <a href="{{ url('/companyUsers/'.$user->id) }}" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
@@ -200,7 +200,7 @@ function bd_nice_number($n) {
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style="text-align: center !important;">{{empty( $today_total[$user->cont]->total ) ? 0 : $today_total[$user->cont]->total}}</td>
-                                                                        <td style="text-align: center !important;">{{empty( $avg[$user->cont]->total ) ? 0 : $avg[$user->cont]->total}}</td>
+                                                                        <td style="text-align: center !important;">{{empty( $avg[$user->cont] ) ? 0 : $avg[$user->cont]}}</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -470,7 +470,7 @@ function bd_nice_number($n) {
                                                                 <tbody>
                                                                     <tr>
                                                                         <td style="text-align: center !important;">{{empty( $todayTotalAll->total ) ? 0 : $todayTotalAll->total}}</td>
-                                                                        <td style="text-align: center !important;">{{empty( $avgAll->total ) ? 0 : $avgAll->total}}</td>
+                                                                        <td style="text-align: center !important;">{{empty( $avgAll ) ? 0 : $avgAll}}</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -1425,11 +1425,25 @@ function bd_nice_number($n) {
                         text: ''
                         },
                         yAxis: {
-                        tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
-                                allowDecimals: false,
-                                title: {
+                            tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
+                            allowDecimals: false,
+                            title: {
                                 text: ''
+                            },
+                            labels: {
+                                formatter: function () {
+                                    var a = parseFloat(this.value);
+                                    var numero = '';
+                                    if (a >= 1000000) {
+                                        numero = Math.round((a / 1000000)) + 'M';
+                                    } else {
+                                        if (a > 1000) {
+                                            numero = Math.round((a / 1000)) + 'K';
+                                        }
+                                    }
+                                    return numero;
                                 }
+                            }
                         },
                         tooltip: {
                         formatter: function () {
@@ -1503,11 +1517,25 @@ function bd_nice_number($n) {
                         text: ''
                         },
                         yAxis: {
-                        tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
-                                allowDecimals: false,
-                                title: {
+                            tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
+                            allowDecimals: false,
+                            title: {
                                 text: ''
+                            },
+                            labels: {
+                                formatter: function () {
+                                    var a = parseFloat(this.value);
+                                    var numero = '';
+                                    if (a >= 1000000) {
+                                        numero = Math.round((a / 1000000)) + 'M';
+                                    } else {
+                                        if (a > 1000) {
+                                            numero = Math.round((a / 1000)) + 'K';
+                                        }
+                                    }
+                                    return numero;
                                 }
+                            }
                         },
                         tooltip: {
                         formatter: function () {
@@ -1654,11 +1682,25 @@ function bd_nice_number($n) {
                         text: ''
                         },
                         yAxis: {
-                        tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
-                                allowDecimals: false,
-                                title: {
+                            tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
+                            allowDecimals: false,
+                            title: {
                                 text: ''
+                            },
+                            labels: {
+                                formatter: function () {
+                                    var a = parseFloat(this.value);
+                                    var numero = '';
+                                    if (a >= 1000000) {
+                                        numero = Math.round((a / 1000000)) + 'M';
+                                    } else {
+                                        if (a > 1000) {
+                                            numero = Math.round((a / 1000)) + 'K';
+                                        }
+                                    }
+                                    return numero;
                                 }
+                            }
                         },
                         tooltip: {
                         formatter: function () {
@@ -1732,11 +1774,25 @@ function bd_nice_number($n) {
                         text: ''
                         },
                         yAxis: {
-                        tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
-                                allowDecimals: false,
-                                title: {
+                            tickPositions: [0, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 600000, 700000, 800000, 900000, 1000000],
+                            allowDecimals: false,
+                            title: {
                                 text: ''
+                            },
+                            labels: {
+                                formatter: function () {
+                                    var a = parseFloat(this.value);
+                                    var numero = '';
+                                    if (a >= 1000000) {
+                                        numero = Math.round((a / 1000000)) + 'M';
+                                    } else {
+                                        if (a > 1000) {
+                                            numero = Math.round((a / 1000)) + 'K';
+                                        }
+                                    }
+                                    return numero;
                                 }
+                            }
                         },
                         tooltip: {
                         formatter: function () {

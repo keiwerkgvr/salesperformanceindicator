@@ -531,46 +531,57 @@ if (isset($_POST['first_name'])) {
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group ">
+                            
+                            <div class="form-group">
+                                <label for="phoneNumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Phone Number*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="phoneNumber" type="text"></div>
+                            </div>
+                            <!--<div class="form-group ">
                                 <label for="phoneNumber	" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Phone Number*</label>
                                 <div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required,custom[phone]]"  name="phoneNumber" type="text"></div>
+                            </div>-->
+                            <div class="form-group">
+                                <label for="emailAddress" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Email Address*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="emailAddress" type="text" ></div>
                             </div>
-
-                            <div class="form-group ">
-                                <label for="emailAddress	" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Email Address*</label>
+                            <!--<div class="form-group ">
+                                <label for="emailAddress" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Email Address*</label>
                                 <div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required,custom[email]]"  name="emailAddress" id="email" type="text"onblur="checkemail(this.value)"></div>
-                            </div>
+                            </div>-->
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
                             <h3 class="text-right">Payment Information</h3>
-                            <div class="form-group marg-top-30">
+                            <div class="form-group" style="margin-top: 30px;">
+                                <label for="nameoncard" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Name On Card*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="nameoncard" type="text"></div>
+                            </div>
+                            <!--<div class="form-group marg-top-30">
                                 <label for="nameoncard" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Name On Card*</label>
                                 <div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required]"  name="nameoncard" type="text"></div>
-                            </div>
+                            </div>-->
 
                             <div class="form-group ">
+                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Card Type</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                                    <select class="form-control"  name="cardType" size="1" data-on="Component.Select"><option value="">Select Your Card</option><option value="MasterCard">MasterCard</option><option value="Visa">Visa</option><option value="Discover">Discover</option><option value="American Express">American Express</option></select>
+                                </div>
+                            </div>
+                            <!--<div class="form-group ">
                                 <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Card Type</label>
                                 <div class="col-md-9 col-sm-9 col-xs-9 vcenter">
                                     <select class="form-control validate[required]"  name="cardType" size="1" data-on="Component.Select"><option value="">Select Your Card</option><option value="MasterCard">MasterCard</option><option value="Visa">Visa</option><option value="Discover">Discover</option><option value="American Express">American Express</option></select>
                                 </div>
-                            </div>
+                            </div>-->
 
 
                             <div class="form-group">
-                                <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Credit Card Number*</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required]"  name="cnumber" type="text"></div>
+                                <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Credit Card Number*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required]"  name="cnumber" type="text"></div>
                             </div>
 
                             <div class="form-group">
-                                <label for="CVV" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">CVV*</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required]"  name="CVV" type="text" ></div>
+                                <label for="CVV" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">CVV*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control validate[required]"  name="CVV" type="text" ></div>
                             </div>
 
 
                             <div class="form-group ">
-                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Month</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Month</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
                                     <select class="form-control validate[required]"  name="cardmonth" size="1" data-on="Component.Select"><option value="">Select Month</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -587,8 +598,7 @@ if (isset($_POST['first_name'])) {
                             </div>
 
                             <div class="form-group ">
-                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Year</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Year</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
                                     <select class="form-control validate[required]" name="cardyear" size="1" data-on="Component.Select"><option value="">Select Year</option><option value="2015">2015</option>
                                         <option value="2016">2016</option>
                                         <option value="2016">2016</option>
@@ -607,13 +617,11 @@ if (isset($_POST['first_name'])) {
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
                             <h3 class="text-right">Product Information</h3>
                             <div class="form-group marg-top-30">
-                                <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Product Name*</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter">licenses</div>
+                                <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Product Name*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">licenses</div>
                             </div>
 
                             <div class="form-group ">
-                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Quantity</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Quantity</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
                                     <select class="form-control"  id="Quantity" name="Quantity" size="1" data-on="Component.Select" onchange="cal(this.value)">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -652,14 +660,10 @@ if (isset($_POST['first_name'])) {
                             </div>
 
                             <div class="form-group ">
-                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Total Price</label>
-                                <div class="col-md-9 col-sm-9 col-xs-9 vcenter" id="totle">
+                                <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Total Price</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter" id="totle">
                                     $ 15.00
                                 </div>
                             </div>
-
-
-
 
                             <div class="form-group ">
                                 <label for="	" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right"> </label>

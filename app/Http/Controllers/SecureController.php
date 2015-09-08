@@ -1294,45 +1294,19 @@ class SecureController extends Controller {
     
     public function getAvgPoints($id,$type)
     {
-        
         if($type==0){
             $user = User::findOrFail($id);
-            $data = DB::table('point_audits')
-            ->join('tasks', 'point_audits.task_id', '=', 'tasks.id')
-            ->select(DB::raw('SUM(point*value) as total'))
-            ->where('user_id', '=', $user->id)
-            ->groupBy('date')
-            ->get();
+            $result = DB::select('CALL avg_member(?)',array($user->id));
+                return round($result[0]->total);
         }else{
             if(Auth::user()->role_id==3){
-                $data = DB::table('point_audits')
-                ->join('tasks', 'point_audits.task_id', '=', 'tasks.id')
-                ->join('users', 'point_audits.user_id', '=', 'users.id')
-                ->select(DB::raw('SUM(point*value) as total'))
-                ->where('users.manager_id', '=',Auth::user()->id )
-                ->groupBy('date')
-                ->get();
+                $result = DB::select('CALL avg_manager(?)',array(Auth::user()->id));
+                return round($result[0]->total);
             }else{
-                $data = DB::table('point_audits')
-                ->join('tasks', 'point_audits.task_id', '=', 'tasks.id')
-                ->join('users', 'point_audits.user_id', '=', 'users.id')
-                ->select(DB::raw('SUM(point*value) as total'))
-                ->where('users.company_id', '=',Auth::user()->company_id )
-                ->groupBy('date')
-                ->get();
+                $result = DB::select('CALL avg_owner(?)',array(Auth::user()->company_id));
+                return round($result[0]->total);
             }
-            
         }
-        
-        
-        $cont = 0;
-        $total=0;
-        foreach ($data as $datum) {
-            $total = $total + $datum->total;
-            $cont++;
-        }
-        if($cont==0) return 0;
-        return $total/$cont;
     }
 
 }
