@@ -7,7 +7,7 @@
             <div class="col-lg-7">
                 <h3>You have scored {{ empty( $today_total->total ) ? '0' : number_format($today_total->total) }} points so far today ( {{ empty($today_total->total) ? '0' : $today_total->date }} ). <br>Your minimum daily goal is {{ $today_target }}.</h3>
             </div>
-			<div class="col-lg-5"><br><img src="{{ asset('/images/stop.png') }}"> <a href="http://youtube.com/" target="_blank">View this instructional video before entering your stats for the first time
+			<div class="col-lg-5"><br><img src="{{ asset('/images/stop.png') }}"> <a href="{{ url('/training') }}">View the Training Videos before entering your stats for the first time
 </a></div>
         </div>
     </div>

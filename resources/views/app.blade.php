@@ -111,9 +111,9 @@ $(document).ready(function () {
                                     <li class="{{ ( Request::is('myStats/*') || Request::is('myStats') ) ? 'active' : '' }}"><a href="{{ url('/myStats') }}">My Stats</a></li>
                                     <li class="{{ ( Request::is('prodSales/*') || Request::is('prodSales') ) ? 'active' : '' }}"><a href="{{ url('/prodSales') }}">Production | Sales Revenue</a></li>
                                     <li class="{{ ( Request::is('myRatio/*') || Request::is('myRatio') ) ? 'active' : '' }}"><a href="{{ url('/myRatio') }}">My Ratio</a></li>
-                                    <li class="{{ ( Request::is('licenses/*') || Request::is('myLicences') ) ? 'active' : '' }}"><a href="{{ url('/licenses/shoppingcart') }}">Order Licenses</a></li>
+                                    <li class="{{ ( Request::is('licenses/shoppingcart*') || Request::is('myLicences') ) ? 'active' : '' }}"><a href="{{ url('/licenses/shoppingcart') }}">Order Licenses</a></li>
                                     <li class="{{ ( Request::is('training/*') || Request::is('training') ) ? 'active' : '' }}"><a href="{{ url('/training') }}">Training</a></li>
-                                    <li class="{{ ( Request::is('myLicences/*') || Request::is('myLicences') ) ? 'active' : '' }}"><a href="{{ url('/licenses/list/'.Auth::user()->company->id) }}">Manage Licenses</a></li>
+                                    <li class="{{ ( Request::is('licenses/list*') || Request::is('myLicences') ) ? 'active' : '' }}"><a href="{{ url('/licenses/list/'.Auth::user()->company->id) }}">Manage Licenses</a></li>
                                     @endif
                                     @endif
                                 </ul>

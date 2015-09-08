@@ -26,12 +26,6 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
                 <h3 class="text-right">Billing Information</h3>
                 <div class="form-group marg-top-30">
-                    <label for="usertype" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">User Type</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
-                        <div><input  name="usertype" id="exist" type="radio">&nbsp;&nbsp;&nbsp;Existing User</div>
-                        <div><input  name="usertype" id="new" type="radio" checked="checked">&nbsp;&nbsp;&nbsp;New User</div>
-                    </div>
-                </div>
-                <div class="form-group marg-top-30">
                     <label for="first_name" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">First Name*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="first_name" type="text"></div>
                 </div>
                 <div class="form-group">
