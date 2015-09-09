@@ -35,7 +35,7 @@ $(document).ready(function () {
 
         <!-- Begin page content -->
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="height: 140px;">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <nav class="navbar-default navbar-fixed-top" id="ss_fixed_nav">
                         <div class="container-fluid">
@@ -46,7 +46,7 @@ $(document).ready(function () {
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="#">
+                                <a class="navbar-brand" href="{{ url('/')}}">
                                     <img class="hidden-xs hidden-sm img-responsive" src="{{ asset('/images/modLogo.png') }}" alt="logo description" />
                                     <img class="hidden-xs visible-sm img-responsive" src="{{ asset('/images/modLogo-half.png') }}" alt="logo description" />
                                     <img class="visible-xs img-responsive" src="{{ asset('/images/modLogo-small.png') }}" alt="logo description" />
@@ -81,7 +81,7 @@ $(document).ready(function () {
                             <li>
                                 <div class="footer-copyright">
                                     <div class="container text-center">
-                                        Sales Performance Indicator | &copy; 2014-2015 Good as Gold Training, All rights reserved.<br />
+                                        Sales Performance Indicator | &copy; 2015 Good as Gold Training, All rights reserved.<br />
                                         <a class="grey-text text-lighten-4 right" href="mailto:support@staffingandrecruiting.com">support@staffingandrecruiting.com | 219 663 9609</a>
                                     </div>
                                 </div>

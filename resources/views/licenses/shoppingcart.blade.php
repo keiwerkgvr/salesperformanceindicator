@@ -23,6 +23,109 @@
         <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 rounded-form-container">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
+                <h3 class="text-right">Payment Information</h3>
+                <div class="form-group marg-top-30">
+                    <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Card Type*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                        <select class="form-control"  id="cardType" name="cardType" size="1" data-on="Component.Select">
+                            <option value="">Select Your Card</option>
+                            <option value="MasterCard">MasterCard</option>
+                            <option value="Visa">Visa</option>
+                            <option value="Discover">Discover</option>
+                            <option value="American Express">American Express</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Credit Card Number*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="cnumber" type="text" id="cnumber"></div>
+                </div>
+                <div class="form-group">
+                    <label for="month" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Month</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                        <select class="form-control"  id="month" name="month" size="1" data-on="Component.Select">
+                            <option value="">Select Month</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="year" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Year</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                        <select class="form-control"  id="year" name="year" size="1" data-on="Component.Select">
+                            <option value="">Select Year</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2016">2016</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <h3 class="text-right">Product Information</h3>
+                <div class="form-group marg-top-30">
+                    <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Product Name*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">licenses</div>
+                </div>
+                <div class="form-group">
+                    <label for="Quantity" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Quantity</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
+                        <select class="form-control"  id="Quantity" name="Quantity" size="1" data-on="Component.Select" onchange="cal(this.value)">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="total" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Total Price</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter" style="padding-top: 20px;" id="total">$ 15.00 (Total amount that will be added to your existing monthly billing amount.)</div>
+                </div>
+                <div class="col-md-12 text-right pad0">
+                    <input class="btn btn-primary vcenter" type="submit" value="Submit">
+                </div>
+            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
                 <h3 class="text-right">Billing Information</h3>
                 <div class="form-group marg-top-30">
@@ -305,109 +408,7 @@
                 <div class="form-group">
                     <label for="emailAddress" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Email Address*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="emailAddress" type="text"></div>
                 </div>
-            </div>    
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
-                <h3 class="text-right">Payment Information</h3>
-                <div class="form-group marg-top-30">
-                    <label for="cardType" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Card Type*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
-                        <select class="form-control"  id="cardType" name="cardType" size="1" data-on="Component.Select">
-                            <option value="">Select Your Card</option>
-                            <option value="MasterCard">MasterCard</option>
-                            <option value="Visa">Visa</option>
-                            <option value="Discover">Discover</option>
-                            <option value="American Express">American Express</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Credit Card Number*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter"><input class="form-control" required="required" name="cnumber" type="text" id="cnumber"></div>
-                </div>
-                <div class="form-group">
-                    <label for="month" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Month</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
-                        <select class="form-control"  id="month" name="month" size="1" data-on="Component.Select">
-                            <option value="">Select Month</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                            <option value="04">04</option>
-                            <option value="05">05</option>
-                            <option value="06">06</option>
-                            <option value="07">07</option>
-                            <option value="08">08</option>
-                            <option value="09">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="year" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Year</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
-                        <select class="form-control"  id="year" name="year" size="1" data-on="Component.Select">
-                            <option value="">Select Year</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2016">2016</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  rounded-form">
-                <h3 class="text-right">Product Information</h3>
-                <div class="form-group marg-top-30">
-                    <label for="cnumber" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Product Name*</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">licenses</div>
-                </div>
-                <div class="form-group">
-                    <label for="Quantity" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right" >Quantity</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter">
-                        <select class="form-control"  id="Quantity" name="Quantity" size="1" data-on="Component.Select" onchange="cal(this.value)">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                            <option value="21">21</option>
-                            <option value="22">22</option>
-                            <option value="23">23</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="total" class="col-md-3 col-sm-3 col-xs-3 control-label vcenter pad0 text-right">Total Price</label><div class="col-md-9 col-sm-9 col-xs-9 vcenter" id="total">$ 15.00</div>
-                </div>
-                <div class="col-md-12 text-right pad0">
-                    <input class="btn btn-primary vcenter" type="submit" value="Submit">
-                </div>
-            </div>
+              </div> 
         </div>
         <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
     </form>   

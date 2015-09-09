@@ -94,7 +94,7 @@ function bd_nice_number($n) {
                                 <tr data-toggle="collapse" data-target="#demo{{$user->id}}" class="accordion-toggle">
                                     <td>{{strtoupper($user->first_name.' '.$user->last_name)}}</td>
                                     <td style="text-align: right;">
-                                        <a href="#" title="View Details"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> |
+                                        <a title="View Details"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> |
                                         @if( \Illuminate\Support\Facades\Auth::user()->role_id == 4)
                                         @if( $user->status == 'INACTIVE' )
                                         <a href="{{ url('/companyUsers/activate/'.$user->id) }}" title="Active"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></a> |

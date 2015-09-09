@@ -169,7 +169,7 @@ $(document).ready(function () {
                             <li>
                                 <div class="footer-copyright">
                                     <div class="container text-center">
-                                        Sales Performance Indicator | &copy; 2014-2015 Good as Gold Training, All rights reserved.<br />
+                                        Sales Performance Indicator | &copy; 2015 Good as Gold Training, All rights reserved.<br />
                                         <a class="grey-text text-lighten-4 right" href="mailto:support@staffingandrecruiting.com">support@staffingandrecruiting.com | 219 663 9609</a>
                                     </div>
                                 </div>

@@ -111,9 +111,9 @@ $(document).ready(function () {
                                     <li class="<?php echo e(( Request::is('myStats/*') || Request::is('myStats') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/myStats')); ?>">My Stats</a></li>
                                     <li class="<?php echo e(( Request::is('prodSales/*') || Request::is('prodSales') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/prodSales')); ?>">Production | Sales Revenue</a></li>
                                     <li class="<?php echo e(( Request::is('myRatio/*') || Request::is('myRatio') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/myRatio')); ?>">My Ratio</a></li>
-                                    <li class="<?php echo e(( Request::is('licenses/*') || Request::is('myLicences') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/licenses/shoppingcart')); ?>">Order Licenses</a></li>
+                                    <li class="<?php echo e(( Request::is('licenses/shoppingcart*') || Request::is('myLicences') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/licenses/shoppingcart')); ?>">Order Licenses</a></li>
                                     <li class="<?php echo e(( Request::is('training/*') || Request::is('training') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/training')); ?>">Training</a></li>
-                                    <li class="<?php echo e(( Request::is('myLicences/*') || Request::is('myLicences') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/licenses/list/'.Auth::user()->company->id)); ?>">Manage Licenses</a></li>
+                                    <li class="<?php echo e(( Request::is('licenses/list*') || Request::is('myLicences') ) ? 'active' : ''); ?>"><a href="<?php echo e(url('/licenses/list/'.Auth::user()->company->id)); ?>">Manage Licenses</a></li>
                                     <?php endif; ?>
                                     <?php endif; ?>
                                 </ul>
@@ -169,7 +169,7 @@ $(document).ready(function () {
                             <li>
                                 <div class="footer-copyright">
                                     <div class="container text-center">
-                                        Sales Performance Indicator | &copy; 2014-2015 Good as Gold Training, All rights reserved.<br />
+                                        Sales Performance Indicator | &copy; 2015 Good as Gold Training, All rights reserved.<br />
                                         <a class="grey-text text-lighten-4 right" href="mailto:support@staffingandrecruiting.com">support@staffingandrecruiting.com | 219 663 9609</a>
                                     </div>
                                 </div>
