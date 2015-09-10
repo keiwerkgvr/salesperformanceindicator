@@ -51,17 +51,17 @@ class CompanyUserController extends SecureController {
             $cont++;
         }
         $activeTab = 'users';
-        $directHireAll = parent::getDirectHire(0,1);
+        $directHireAll = parent::getDirectHire(0,1);//ready
         $directHireTargetAll = parent::getDirectHireTarget(0);
-        $gmpAll = parent::getGMP(0,1);
-        $gmpAnnualAll = parent::getGMPAnnual(0,1);
-        $recruitingAll = parent::getRecruiting(0,1);
-        $clientDevAll = parent::getClientDev(0,1);
-        $clientDevOutAll = parent::getClientDevOut(0,1);
-        $pointMonthlyAll = parent::getPointMonthly(0,1);
-        $pointDailyAll = parent::getPointDaily(0,1);
-        $todayTotalAll = parent::getTodaysStats2(0,1);
-        $directHireAnnualAll = parent::getDirectHireAnnual(0,1);
+        $gmpAll = parent::getGMP(0,1);//ready
+        $gmpAnnualAll = parent::getGMPAnnual(0,1);//ready
+        $recruitingAll = parent::getRecruiting(0,1);//ready
+        $clientDevAll = parent::getClientDev(0,1);//ready
+        $clientDevOutAll = parent::getClientDevOut(0,1);//ready
+        $pointMonthlyAll = parent::getPointMonthly(0,1);//ready
+        $pointDailyAll = parent::getPointDaily(0,1);//ready
+        $todayTotalAll = parent::getTodaysStats2(0,1);//ready
+        $directHireAnnualAll = parent::getDirectHireAnnual(0,1);//ready
         $avgAll = parent::getAvgPoints(0,1);
         /* echo '<pre>';
           print_r($pointDaily);
@@ -283,6 +283,22 @@ class CompanyUserController extends SecureController {
 
     public function reset($id) {
         $user = User::findOrFail($id);
+        
+        if(isset($user) and isset($id)){
+            DB::table('sales')
+                ->where('user_id', $id )
+                ->update(['reset_enabled' => 1]);
+
+            DB::table('points')
+                ->where('user_id', $id )
+                ->update(['reset_enabled' => 1]);
+
+            DB::table('point_audits')
+                ->where('user_id', $id )
+                ->update(['reset_enabled' => 1]);
+        }
+                
+        /*
         $userPassword = UserPassword::whereRaw('user_id = ?', array($id))->first();
         $date = new \DateTime(); //this returns the current date time
         $password = parent::randStrGen(8);
@@ -301,7 +317,7 @@ class CompanyUserController extends SecureController {
         Mail::send('emails.reset', array('first_name' => $user->first_name, 'last_name' => $user->last_name, 'user_name' => $contactEmail, 'password' => $password), function( $message ) use ($contactEmail, $contactName) {
             $message->from('no-reply@salesperformanceindicator.com', 'Sales Performance Indicator');
             $message->to($contactEmail, $contactName)->subject('Password Reset');
-        });
+        });*/
 
         return Redirect::action('CompanyUserController@index');
     }

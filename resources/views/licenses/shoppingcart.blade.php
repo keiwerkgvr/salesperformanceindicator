@@ -427,7 +427,8 @@
 <script>
     function cal(val) {
         var ammount = val * 15;
-        document.getElementById('totle').innerHTML = '$ ' + ammount + '.00';
+        var text = '(Total amount that will be added to your existing monthly billing amount.)';
+        document.getElementById('total').innerHTML = '$ ' + ammount + '.00 ' + text ;
     }
 </script>
 @endsection

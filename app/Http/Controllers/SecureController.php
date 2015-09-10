@@ -113,6 +113,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(points.points) as monthlyTotal, points.month'))
                 ->where('points.user_id', '=', $user_id)
                 ->where('points.year', '=', date("Y"))
+                ->where('points.reset_enabled', '=', 0)
                 ->groupBy('points.month')
                 ->orderBy('points.month')
                 ->get();
@@ -123,6 +124,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(points.points) as monthlyTotal, points.month'))
                 ->where('points.year', '=', date("Y"))
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('points.reset_enabled', '=', 0)
                 ->groupBy('points.month')
                 ->orderBy('points.month')
                 ->get();
@@ -131,6 +133,7 @@ class SecureController extends Controller {
                 ->join('users', 'points.user_id', '=', 'users.id')
                 ->select(DB::raw('sum(points.points) as monthlyTotal, points.month'))
                 ->where('points.year', '=', date("Y"))
+                ->where('points.reset_enabled', '=', 0)
                 ->where('users.company_id', '=',Auth::user()->company_id )
                 ->groupBy('points.month')
                 ->orderBy('points.month')
@@ -160,6 +163,7 @@ class SecureController extends Controller {
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Saturday')
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Sunday')
                 ->where('point_audits.user_id', '=', $user_id)
+                ->where('point_audits.reset_enabled', '=', 0)
                 ->orderBy('point_audits.date')
                 ->get();
         }else{
@@ -172,6 +176,7 @@ class SecureController extends Controller {
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Saturday')
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Sunday')
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('point_audits.reset_enabled', '=', 0)        
                 ->orderBy('point_audits.date')
                 ->get();
             }else{
@@ -183,6 +188,7 @@ class SecureController extends Controller {
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Saturday')
                 ->where(DB::raw( 'Date_format(date,"%W")' ), '!=', 'Sunday')
                 ->where('users.company_id', '=',Auth::user()->company_id )
+                ->where('point_audits.reset_enabled', '=', 0)
                 ->orderBy('point_audits.date')
                 ->get();
             }
@@ -221,6 +227,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as monthlyTotal, sales.month'))
                 ->where('sales.user_id', '=', $user_id)
                 ->where('sales.saleType_id', '=', 1)
+                ->where('sales.reset_enabled', '=', 0)
                 ->where('sales.year', '=', date("Y"))
                 ->groupBy('sales.month')
                 ->get();
@@ -231,6 +238,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as monthlyTotal, sales.month'))
                 ->where('sales.saleType_id', '=', 1)
                 ->where('sales.year', '=', date("Y"))
+                ->where('sales.reset_enabled', '=', 0)
                 ->where('users.manager_id', '=',Auth::user()->id )
                 ->groupBy('sales.month')
                 ->get();
@@ -240,6 +248,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as monthlyTotal, sales.month'))
                 ->where('sales.saleType_id', '=', 1)
                 ->where('sales.year', '=', date("Y"))
+                ->where('sales.reset_enabled', '=', 0)
                 ->where('users.company_id', '=',Auth::user()->company_id )
                 ->groupBy('sales.month')
                 ->get();
@@ -265,6 +274,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as yearlyTotal, sales.year'))
                 ->where('sales.user_id', '=', $user_id)
                 ->where('sales.saleType_id', '=', 1)
+                ->where('sales.reset_enabled', '=', 0)
                 ->groupBy('sales.year')
                 ->get();
         
@@ -275,6 +285,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as yearlyTotal, sales.year'))
                 ->where('sales.saleType_id', '=', 1)
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('sales.reset_enabled', '=', 0)
                 ->groupBy('sales.year')
                 ->get();
             }else{
@@ -283,6 +294,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as yearlyTotal, sales.year'))
                 ->where('sales.saleType_id', '=', 1)
                 ->where('users.company_id', '=',Auth::user()->company_id )
+                ->where('sales.reset_enabled', '=', 0)
                 ->groupBy('sales.year')
                 ->get();
             }
@@ -305,6 +317,7 @@ class SecureController extends Controller {
                 ->where('sales.user_id', '=', $user_id)
                 ->where('sales.saleType_id', '=', 2)
                 ->where('sales.year', '=', date("Y"))
+                ->where('sales.reset_enabled', '=', 0)
                 ->groupBy('sales.month')
                 ->get();
         }else{
@@ -348,6 +361,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('sum(sales.sale) as yearlyTotal, sales.year'))
                 ->where('sales.user_id', '=', $user_id)
                 ->where('sales.saleType_id', '=', 2)
+                ->where('sales.reset_enabled', '=', 0)
                 ->groupBy('sales.year')
                 ->get();
         }else{
@@ -463,6 +477,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 1)
                 ->where('user_id', '=', $id)
+                ->where('reset_enabled', '=', 0)    
                 ->first();
         }else{
             
@@ -490,6 +505,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 1)
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }else{
                 $recruiting = DB::table('point_audits')
@@ -515,6 +531,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 1)
                 ->where('users.company_id', '=',Auth::user()->company_id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }
             
@@ -723,6 +740,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 10)
                 ->where('user_id', '=', $id)
+                ->where('reset_enabled', '=', 0)
                 ->first();
         }else{
             if(Auth::user()->role_id==3){
@@ -749,6 +767,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 10)
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }else{
                 $clientDev = DB::table('point_audits')
@@ -774,6 +793,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 10)
                 ->where('users.company_id', '=',Auth::user()->company_id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }
             
@@ -1009,6 +1029,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 19)
                 ->where('user_id', '=', $id)
+                ->where('reset_enabled', '=', 0)
                 ->first();
         }else{
             if(Auth::user()->role_id==3){
@@ -1035,6 +1056,7 @@ class SecureController extends Controller {
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 19)
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }else{
                 $clientDevOut = DB::table('point_audits')
@@ -1059,6 +1081,7 @@ class SecureController extends Controller {
                         ))
                 ->where('date', '=', DB::raw('current_date()'))
                 ->where('task_id', '=', 19)
+                ->where('reset_enabled', '=', 0)
                 ->where('users.company_id', '=',Auth::user()->company_id )
                 ->first();
             }
@@ -1267,6 +1290,7 @@ class SecureController extends Controller {
             ->select(DB::raw('case when SUM(point*value)<1 then 0 else SUM(point*value) end as total, date'))
             ->where('date', '=', DB::raw( 'current_date()' ))
             ->where('user_id', '=', $user->id)
+            ->where('reset_enabled', '=', 0)
             ->groupBy('user_id')
             ->first();
         }else{
@@ -1277,6 +1301,7 @@ class SecureController extends Controller {
                 ->select(DB::raw('case when SUM(point*value)<1 then 0 else SUM(point*value) end as total, date'))
                 ->where('date', '=', DB::raw( 'current_date()' ))
                 ->where('users.manager_id', '=',Auth::user()->id )
+                ->where('reset_enabled', '=', 0)
                 ->first();
             }else{
                 return DB::table('point_audits')
@@ -1284,6 +1309,7 @@ class SecureController extends Controller {
                 ->join('users', 'point_audits.user_id', '=', 'users.id')
                 ->select(DB::raw('case when SUM(point*value)<1 then 0 else SUM(point*value) end as total, date'))
                 ->where('date', '=', DB::raw( 'current_date()' ))
+                ->where('reset_enabled', '=', 0)
                 ->where('users.company_id', '=',Auth::user()->company_id )
                 ->first();
             }

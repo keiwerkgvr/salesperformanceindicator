@@ -95,13 +95,6 @@ function bd_nice_number($n) {
                                     <td>{{strtoupper($user->first_name.' '.$user->last_name)}}</td>
                                     <td style="text-align: right;">
                                         <a title="View Details"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a> |
-                                        @if( \Illuminate\Support\Facades\Auth::user()->role_id == 4)
-                                        @if( $user->status == 'INACTIVE' )
-                                        <a href="{{ url('/companyUsers/activate/'.$user->id) }}" title="Active"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></a> |
-                                        @else
-                                        <a href="{{ url('/companyUsers/destroy/'.$user->id) }}" onclick="return  confirm('Owners within the Sales Performance Indicator software have the ability to deactivate a user.  Your cancellation will take effect on your next billing date.  Refunds will not be provided for deactivation during a billing cycle.\n\nAre you sure?');" title="Inactive"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> |
-                                        @endif
-                                        @endif
                                         <a href="{{ url('/companyUsers/'.$user->id) }}" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a> |
                                         <a href="{{ url('/companyUsers/reset/'.$user->id) }}" onclick="return  confirm('Are you sure want to clean all data for the user {{$user->last_name}}, {{$user->first_name}}?');" title="Reset" ><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span></a> |
                                         <a href="{{ url('/companyUsers/sendEmail/'.$user->id) }}" title="Send Username and Password" ><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
